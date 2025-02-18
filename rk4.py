@@ -26,7 +26,7 @@ def make_damping_matrix(k):
     if n == 1:
         return np.array([[k[0]]], dtype=np.float128)
 
-    out = np.zeros((n, n), dtype=np.float128)
+    out = np.zeros((n, n))
     out[0][0] = k[0] + k[1]
     out[0][1] = -k[1]
     out[n - 1][n - 2] = -k[n - 1]
@@ -40,17 +40,18 @@ def make_damping_matrix(k):
     return out
 
 
-mass = np.array([1.5e5, 1.5e5, 1.5e5], dtype=np.float128)
-elasticity = np.array([2e5, 2e5, 2e5], dtype=np.float128)
-damping_percent = np.array([0.05, 0, 0], dtype=np.float128)
+mass = np.array([1.5e5, 1.5e5, 1.5e5])
+elasticity = np.array([2e5, 2e5, 2e5])
+damping_percent = np.array([0.05, 0, 0])
 n = len(mass)
 
-freq = 4
+freq = 0.081
 ground_accel = 0.3
 
 t0 = 0
 x0 = np.zeros(2 * n, dtype=np.float128)
-ts = 60
+# x0 = np.append(np.repeat(np.float128(10), n), np.zeros(n, dtype=np.float128))
+ts = 10 * 60
 s = 10_000
 
 h = (ts - t0) / s

@@ -10,5 +10,6 @@ De la misma manera, se proponen las siguientes recomendaciones para trabajos de 
 
 \begin{enumerate}
     \item Para el modelado de sismos, considerar información empírica sobre vibraciones sísmicas para la construcción de funciones de fuerza externa \(\mathbf{P}(t)\). Aunque las funciones sinusoidales son una aproximación factible para la fuerza ejercida por el suelo sobre una estructura, lo óptimo sería poder utilizar una grabación de vibraciones sísmicas de la vida real. Dado que en este informe se utiliza un método numérico iterativo, la implementación de un modelo como este sería sencillo.
-    \item
+
+    \item En general, trabajar con modelos menos simplificados para la estructura de \(n\) pisos. Una de las razones por las que el método de RK4 fue efectivo para este trabajo particular fueron las simplificaciones que se realizaron en la construcción del modelo (por ejemplo, ignorar las interacciones suelo-estructura y la posibilidad del uso de materiales no-lineales). Sin embargo, este modelo podría no ser lo suficientemente confiable para realizar predicciones más críticas o para mayores rangos de timepo.
 \end{enumerate}
