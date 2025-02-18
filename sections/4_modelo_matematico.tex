@@ -8,7 +8,7 @@ Cabe resaltar que, como convención general, tomaremos al eje positivo de las po
 
 Consideremos una estructura de un piso, como muestra la figura~\ref{fig:1-floor-diagram}, con masa \(m\) (en \si{kg}), rigidez lateral \(k\) (en \si{m/s^2}) y constante de amortiguamiento \(c\) (en \si{m/s}). Además, sea \(u\) la posición horizontal (en \si{m}) de la estructura con respecto a su estado de reposo, y consideremos que la estructura está siendo sometida a una fuerza de excitación externa \(P(t)\) (en \si{N}).
 
-\begin{figure}[h]
+\begin{figure}[ht!]
     \centering
     \includegraphics[width=0.8\textwidth]{diagrama_1_piso}
     \caption{Una estructura de un piso con amortiguamiento viscoso y una fuerza de excitación externa.}
@@ -17,7 +17,7 @@ Consideremos una estructura de un piso, como muestra la figura~\ref{fig:1-floor-
 
 Como solo tiene un piso, podemos considerar un único grado de libertad. El diagrama de cuerpo libre de la estructura se muestra en la figura~\ref{fig:1-floor-dcl}.
 
-\begin{figure}[h]
+\begin{figure}[ht!]
     \centering
     \includegraphics[width=0.8\textwidth]{dcl_1_piso}
     \caption{DCL de la estructura de un piso.}
@@ -53,7 +53,7 @@ Habiendo realizado el modelado para una estructura de un único piso, considerem
     \item \(P_i(t)\): fuerza de excitación (en \si{N}).
 \end{itemize}
 
-\begin{figure}[h]
+\begin{figure}[ht!]
     \centering
     \includegraphics[width=0.9\textwidth]{diagrama_3_pisos}
     \caption{Una estructura de 3 pisos, sus constantes elásticas y de amortiguamiento, y sus fuerzas de excitación externas.}
@@ -68,7 +68,7 @@ Por lo tanto, haremos un análisis con DCL para cada piso individualmente.
 
 Como muestra el DCL de la figura~\ref{fig:3-floor-dcl-1}, el primer piso de la estructura se ve afectado por fuerzas de restauración y amortiguamiento viscoso con respecto tanto al \textit{suelo} como al \textit{segundo piso}.
 
-\begin{figure}[h]
+\begin{figure}[ht!]
     \centering
     \includegraphics[width=0.8\textwidth]{dcl_3_pisos_1}
     \caption{DCL del primer piso de la estructura.}
@@ -102,7 +102,7 @@ Reemplazando \(v_1\) y \(a_1\) por la primera y segunda derivada de \(u_1\) resp
 
 La figura  muestra el DCL del segundo piso de la estructura.
 
-\begin{figure}[h]
+\begin{figure}[ht!]
     \centering
     \includegraphics[width=0.8\textwidth]{dcl_3_pisos_2}
     \caption{DCL del segundo piso de la estructura.}
@@ -134,7 +134,7 @@ Reemplazando velocidades y aceleraciones por las derivadas de \(u_2\) y reordena
 
 La figura  muestra el DCL del tercer piso de la estructura.
 
-\begin{figure}[h]
+\begin{figure}[ht!]
     \centering
     \includegraphics[width=0.8\textwidth]{dcl_3_pisos_3}
     \caption{DCL del tercer piso de la estructura.}
@@ -201,11 +201,11 @@ y las matrices de constantes de elasticidad y amortiguamiento viscoso, respectiv
     \end{bmatrix}
 .\end{equation}
 
-Este es un sistema de 3 ecuaciones diferenciales lineales de segundo orden, y modela las vibraciones mecánicas de una estructura de 3 pisos. Considerar \eqref{eqn:astroscilaciones} con \(P(t) = \mathbf{0}\) se puede utilizar para hallar la \textit{frecuencia natural} de la estructura \citep{rendon}.
+Este es un sistema de 3 ecuaciones diferenciales lineales de segundo orden, y modela las vibraciones mecánicas de una estructura de 3 pisos. Considerar \eqref{eqn:astroscilaciones} con \(\mathbf{P}(t) = \mathbf{0}\) se puede utilizar para hallar la \textit{frecuencia natural} de la estructura \citep{rendon}.
 
 \subsection{Para una estructura de múltiples grados de libertad}
 
-No resulta difícil extender el modelo de 3 pisos a una cantidad arbitraria de pisos. En esencia, el procedimiento consistirá en modelar el primer piso, un piso intermedio cualquier, y el último piso.
+No resulta difícil extender el modelo de 3 pisos a una cantidad arbitraria de pisos. En esencia, el procedimiento consistirá en modelar el primer piso, un piso intermedio cualquiera, y el último piso.
 
 Consideremos una estructura de \(n\) pisos para \(n \geq 3\), considerando las mismas variables usadas para el \(i\)-ésimo piso del modelo de 3 pisos. Nuevamente, consideraremos cada piso de la estructura como un grado de libertad en sentido horizontal.
 
@@ -224,7 +224,7 @@ El proceso para estos pisos es exactamente igual al del segundo piso del modelo 
 
 Consideremos ahora un \(i\)-ésimo piso para \(1 < i < n\), cuyo DCL se muestra en la figura~\ref{fig:n-floor-dcl-mid}.
 
-\begin{figure}[h]
+\begin{figure}[ht!]
     \centering
     \includegraphics[width=0.8\textwidth]{dcl_n_pisos_mid}
     \caption{DCL de un \(i\)-ésimo piso de la estructura.}
@@ -252,7 +252,7 @@ Reemplazando velocidades y aceleraciones por las derivadas de \(u_i\) y reordena
 
 \subsubsection*{Último piso}
 
-Consideremos ahora el \(n\)-ésimo piso, cuyo DCL es idéntico al de la figura~\ref{fig:3-floor-dcl-3}, pero tomando al piso 3 como el piso \(n\) y al piso 2 como el piso \(n - 1\). Nuevamente, el procedimiento para modelar este piso es exactamente el mismo que para el piso 3 de la estructura de 3 pisos. Un tratamiento esencialmente idéntico al que realizamos para ese caso anterior nos otorga una expresión idéntica a \eqreF{eqn:floor-3}, pero reemplazando al piso 3 por el piso \(n\) y al piso 2 por el piso \(n - 1\):
+Consideremos ahora el \(n\)-ésimo piso, cuyo DCL es idéntico al de la figura~\ref{fig:3-floor-dcl-3}, pero tomando al piso 3 como el piso \(n\) y al piso 2 como el piso \(n - 1\). Nuevamente, el procedimiento para modelar este piso es exactamente el mismo que para el piso 3 de la estructura de 3 pisos. Un tratamiento esencialmente idéntico al que realizamos para ese caso anterior nos otorga una expresión idéntica a \eqref{eqn:floor-3}, pero reemplazando al piso 3 por el piso \(n\) y al piso 2 por el piso \(n - 1\):
 \begin{equation}\label{eqn:final-floor-last}
     m_n u_n'' + c_n(u_n' - u_{n-1}') + k_n(u_n - u_{n-1}) = P_n(t)
 .\end{equation}
@@ -310,4 +310,4 @@ y
     \end{bmatrix}
 .\end{equation}
 
-Este es un sistema de \(n\) ecuaciones diferenciales de segundo orden, y es el sistema que modela las oscilaciones de una estructura de \(n\) pisos. Al igual que en el modelo de 3 pisos, considerar \eqref{eqn:final-matrix-form} con \(P(t) = \mathbf{0}\) se puede utilizar para hallar la frecuencia natural de la estructura \citep{rendon}.
+Este es un sistema de \(n\) ecuaciones diferenciales de segundo orden, y es el sistema que modela las oscilaciones de una estructura de \(n\) pisos. Al igual que en el modelo de 3 pisos, considerar \eqref{eqn:final-matrix-form} con \(\mathbf{P}(t) = \mathbf{0}\) se puede utilizar para hallar la frecuencia natural de la estructura \citep{rendon}.

@@ -128,9 +128,9 @@ Nótese también que \(M^{-1}\) siempre existe (y es trivial) puesto que \(M\) e
 .\]
 
 Ahora podemos expresar \eqref{eqn:substituted-system} mediante una sola ecuación matricial con \(\mathbf{u}\) y \(\mathbf{v}\) concatenados en un solo vector \(\mathbf{x}\) como
-\[
+\begin{equation}\label{eqn:rk4-ready}
     \mathbf{x}' = \mathbf{f}(t, \mathbf{x})
-,\]
+,\end{equation}
 donde definimos
 \[
     \mathbf{x} = \begin{bmatrix} \mathbf{u} \\ \mathbf{v} \end{bmatrix}_{2n \times 1},
@@ -152,21 +152,22 @@ Entonces, el procedimiento que usaremos será el siguiente:
         \begin{enumerate}
 
             \item Calcular, en orden, los siguientes vectores:
-
                 \begin{align*}
                     \mathbf{k}_1 &= \mathbf{f}(t_i, \mathbf{x}_i) \\
                     \mathbf{k}_2 &= \mathbf{f}(t_i + \frac{h}{2}, \mathbf{x}_i + \frac{h}{2}\mathbf{k}_1) \\
                     \mathbf{k}_3 &= \mathbf{f}(t_i + \frac{h}{2}, \mathbf{x}_i + \frac{h}{2}\mathbf{k}_2) \\
                     \mathbf{k}_4 &= \mathbf{f}(t_i + h, \mathbf{x}_i + h\mathbf{k}_3)
-                \end{align*}
+                .\end{align*}
 
             \item Calcular la siguiente iteración de \(\mathbf{x}\) como
                 \[
                     \mathbf{x}_{i+1} = \mathbf{x}_i + \frac{h}{6}(\mathbf{k}_1 + 2\mathbf{k}_2 + 2\mathbf{k}_3 + \mathbf{k}_4)
                 \]
-                y la siguiente iteración del \(t\) como \(t_{i+1} = t_i + h\).
+                y la siguiente iteración de \(t\) como \(t_{i+1} = t_i + h\).
         \end{enumerate}
 \end{enumerate}
+
+Al final del proceso, los valores de \(\mathbf{x}\) obtenidos contendrán en sus primeras mitades los puntos calculados para las posiciones \(u_1, u_2, \ldots, u_n\) de los pisos a través del tiempo.
 
 Nótese que, en lugar de definir explícitamente un valor para el avance \(h\), definimos un \textit{tiempo final} \(t_s\) y calculamos \(h\) en función de este y la cantidad de pasos deseada, puesto que resulta más conveniente definir un tiempo de llegada y una cantidad de pasos que denoten la ``precisión'' a utilizar.
 
@@ -182,7 +183,10 @@ Los valores de masa, amortiguamiento y elasticidad que utilizaremos se basan en 
     k_1 = k_2 = k_3 = 200,000 \, \si{N/m}, \\
     \zeta_1 = 5\%, \quad \zeta_2 = \zeta_3 = 0\%
 ,\end{gather}
-de donde (como se explicó en el marco teórico sobre las razones de amortiguamiento) tenemos los coeficientes de amortiguamiento \(c_1 = 5\%(2\sqrt{m_1 k_1}) \approx 16497.13 \, \si{kg/s}, c_2 = c_3 = 0 \, \si{kg/s}\). Aunque se tratan de parámetros para un edificio, estos parámetros son de igual manera una referencia válida para parámetros de un puente de 3 pisos.
+de donde (como se explicó en el marco teórico sobre las razones de amortiguamiento) tenemos los coeficientes de amortiguamiento \(c_1 = 5\%(2\sqrt{m_1 k_1}) \approx 16497.13 \, \si{kg/s}, \,
+c_2 = c_3 = 0 \, \si{kg/s}\). Aunque se tratan de parámetros para un edificio, estos parámetros son de igual manera una referencia válida para parámetros de un puente de 3 pisos.
+
+Cabe destacar que todas las gráficas usarán segundos para el tiempo \(t\) y metros para los desplazamientos \(u_1, u_2, \ldots, u_n\).
 
 En primer lugar, podemos considerar una fuerza externa nula \(\mathbf{P}(t) = \mathbf{0}\). La figura~\ref{fig:sol-p-0} muestra que, como es de esperarse, ninguno de los pisos presenta movimiento alguno.
 
@@ -226,7 +230,11 @@ se produce la figura~\ref{fig:sol-sismo-damped}. En esta gráfica, se puede nota
     \label{fig:sol-sismo-damped}
 \end{figure}
 
-Si, en lugar de aumentar el amortiguamiento, aumentamos los coeficientes elásticos, se obtiene la gráfica~\ref{fig:sol-sismo-elastic}.
+Si, en lugar de aumentar el amortiguamiento, aumentamos los coeficientes elásticos a
+\[
+    k_1 = 200,000 \, \si{N/m}, \quad k_2 = 500,000 \, \si{N/m}, \quad k_3 = 800,000 \, \si{N/m}
+,\]
+se obtiene la figura~\ref{fig:sol-sismo-elastic}.
 
 \begin{figure}[ht!]
     \centering

@@ -1,1 +1,28 @@
 \section{Análisis y discusión de la solución}
+
+\subsection{Validación de resultados}
+
+Las gráficas que hemos obtenido (salvo la figura~\ref{fig:sol-p-0}), de una forma u otra, muestran oscilaciones por parte de los 3 pisos involucrados. Esto es de esperar, dada la naturaleza elástica que el modelo de ecuaciones diferenciales supone para la estructura.
+
+Podemos comparar la forma general de estos gráficos con el trabajo de \citet{hernandez}, quien llevó a cabo un estudio similar de la dinámica de un sistema de 3 grados de libertad. Al igual que las gráficas de este informe, los resultados de \citet{hernandez} muestran comportamiento oscilatorio con cierta (aparente) aleatoriedad.
+
+Otro trabajo con el que podemos comparar los resultados es con el de \citet{garcia}, quien también realizó un estudio sobre análisis dinámico en edificios. Parte de este estudio involucró el análisis de una estructura de 6 grados de libertad, el cual produjo gráficas con oscilaciones y cierto grado de aleatoriedad con formas parecidas tanto a las gráficas presentadas en este trabajo como a las del trabajo de \citet{hernandez} (aunque aquí están presentadas para un lapso de tiempo mayor).
+
+Dentro de todo, las gráficas que se ha producido para este informe tienen sentido si se considera de forma intuitiva cuál debería ser el movimiento de los pisos de una estructura si es sometida a fuerzas externas. Además, existen trabajos existentes, como el de \citet{hernandez} y \citet{garcia}, que muestran resultados de carácter similar.
+
+
+\subsection{Interpretación}
+
+Todas las gráficas presentadas (salvo la figura~\ref{fig:sol-p-0}) presentan cierto comportamiento errático al inicio, lo cual tiene sentido puesto que se trata de un sistema de múltiples masas unidas por componentes que actúan como resortes.
+
+La figura~\ref{fig:sol-sismo-corto} muestra que, al menos bajo los parámetros utilizados, el primer piso de la estructura es el que muestra mayor oscilación y desplazamiento. Aunque a grandes rasgos forma una trayectoria aparentemente aleatoria, se puede observar que este piso oscila múltiples veces por segundo dentro de dicha trayectoria. En otras palabras, la gráfica muestra una oscilación dentro de otra oscilación. Los otros dos pisos de la estructura oscilan con un periodo mucho mayor, lo cual, se puede intuir, es el resultado del ``suavizado'' que genera la conexión entre el primer y el segundo piso por medio de la elasticidad que los une.
+
+
+\subsection{Limitaciones}
+
+Una de las principales limitaciones que se encontraron en el desarrollo de este informe fue el hecho de que trabajar de forma analítica con ecuaciones como \eqref{eqn:final-matrix-form}, incluso para valores de \(n\) tan bajos como 2, resulta extremadamente extenso y tedioso, si es que no imposible. Aunque el uso de métodos numéricos puede ser suficiente para un amplio conjunto de aplicaciones (incluyendo aquellas consideradas en este trabajo), existen escenarios donde es imprescindible la obtención de soluciones analíticas. Por ejemplo, una de las desventajas más evidentes de los métodos numéricos es, por definición, su inexactitud. Además, \citet{kumar} menciona que ``el costo computacional de un método [numérico] es un factor crítico [...]. Los investigadores pueden optar por métodos que generen un balance entre exactitud y eficiencia computacional'' (p. 551). Si una futura investigación en este tema tuviese requerimientos no alcanzables por medio de métodos numéricos (por ejemplo, requerir cálculos computacionales demasiado altos), los métodos numéricos presentados en este informe podrían no ser suficiente.
+
+Otra limitación que presenta este trabajo es la simplificación que se realiza en el proceso de hacer el modelo matemático. Por ejemplo, el modelo no considera que el amortiguamiento y elasticidad de los componentes de la estructura podría cambiar a través del tiempo debido a la carga de la estructura. \citet{worden} mencionan que ``es probable que todas las estructuras prácticas de ingeniería son no-lineales hasta cierto punto'' (p. 41). El modelo tampoco considera las interacciones de la estructura con el suelo en el que se encuentra, las cuales sería de especial necesidad estudiar para el análisis de sismos. Existen diversas investigaciones que han mostrado que la respuesta del suelo a cargas dinámicas (como es el caso de un puente) tiene un impacto significativo en posibles daños estructurales \citep{bapir}.
+
+
+\subsection{Propuestas prácticas de aplicación}
