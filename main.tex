@@ -1,0 +1,75 @@
+\documentclass[a4paper, titlepage]{article}
+
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage[margin=2.54cm]{geometry}
+\usepackage[spanish, es-nodecimaldot]{babel}
+\usepackage{hyperref}
+\usepackage{url}
+\usepackage{amsmath, amsthm, amssymb}
+\usepackage{siunitx}
+\usepackage[backend=biber, natbib=true, style=apa]{biblatex}
+\usepackage[inline]{enumitem}
+\usepackage{graphicx}
+\usepackage{svg}
+\usepackage{float}
+\usepackage{minted}
+\usepackage{xcolor}
+\usepackage{csquotes}
+\usepackage{mathtools}
+
+\mathtoolsset{showonlyrefs}
+
+\definecolor{codebg}{rgb}{0.95,0.95,0.95}
+\setminted[python]{
+    baselinestretch=1,
+    fontsize=\footnotesize,
+    linenos=true,
+    bgcolor=codebg
+}
+
+\addbibresource{./main.bib}
+\DeclareLanguageMapping{spanish}{spanish-apa}
+
+\graphicspath{{./figures/}}
+
+% Interlineado de 1.5
+\renewcommand{\baselinestretch}{1.5}
+
+\newtheorem{definition}{Definición}
+\newtheorem{theorem}{Teorema}
+
+\title{Vibraciones mecánicas en estructuras de múltiples grados de libertad}
+\author{
+    José Daniel Grayson Tejada \\
+    \texttt{202410372} \and
+    Diego Alonso Figueroa Winkelried \\
+    \texttt{202410533} \and
+    Joaquín Adrian Lopez Del Carpio \\
+    \texttt{202410220} \and
+    Gonzalo Andrés Valladolid Jimenes \\
+    \texttt{202410186}
+}
+
+\begin{document}
+
+\begin{titlepage}
+\maketitle
+\end{titlepage}
+
+\addtocounter{page}{1}
+
+\input{sections/1_introduccion}
+\input{sections/2_objetivos}
+\input{sections/3_marco_teorico}
+\input{sections/4_modelo_matematico}
+\input{sections/5_analisis_previo}
+\input{sections/6_metodo_de_solucion}
+\input{sections/7_analisis_y_discusion}
+\input{sections/8_conclusiones}
+
+\printbibliography[title=Bibliografía, heading=bibnumbered]
+
+\input{sections/9_apendice}
+
+\end{document}

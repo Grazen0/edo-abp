@@ -1,0 +1,29 @@
+\appendix
+
+\section{RK4 para sistemas de EDOs}\label{appendix:rk4-systems}
+
+El método de Runge-Kutta de cuarto orden se puede aplicar de forma análoga a su formulación original para resolver sistemas de ecuaciones diferenciales de primer orden. Es fácil observar que las ecuaciones presentadas en el marco teórico sobre Runge-Kutta pueden tomar a \(y\), \(f(x, y)\) y a los coeficientes \(k_i\) como vectores en el sistema de EDOs
+\[
+    \mathbf{y}'(x) = \mathbf{f}(x, \mathbf{y})
+\]
+de la siguiente manera:
+
+\[
+    \mathbf{y}_{n+1} = \mathbf{y}_n + \frac{1}{6}h(\mathbf{k}_1 + 2\mathbf{k}_2 + 2\mathbf{k}_3 + \mathbf{k}_4)
+,\]
+y
+\begin{align*}
+    \mathbf{k}_1 &= \mathbf{f}(x_n, \mathbf{y}_n) \\
+    \mathbf{k}_2 &= \mathbf{f}(x_n + \frac{1}{2}h, \mathbf{y}_n + \frac{1}{2}h\mathbf{k}_1) \\
+    \mathbf{k}_3 &= \mathbf{f}(x_n + \frac{1}{2}h, \mathbf{y}_n + \frac{1}{2}h\mathbf{k}_2) \\
+    \mathbf{k}_4 &= \mathbf{f}(x_n + h, \mathbf{y}_n + h\mathbf{k}_3)
+.\end{align*}
+
+
+\section{Código de Python utilizado}\label{appendix:rk4-code}
+
+El código de Python utilizado en este informe para resolver \eqref{eqn:final-matrix-form} con Runge-Kutta de orden 4 es el siguiente:
+
+\inputminted{python}{./rk4.py}
+
+Las líneas 43-53 contienen los parámetros del sistema de ecuaciones (masas, constantes de amortiguamiento y elasticidad, etc).

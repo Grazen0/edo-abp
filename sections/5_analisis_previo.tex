@@ -1,0 +1,24 @@
+\section{Análisis previo del problema}
+
+Antes de resolver el sistema de ecuaciones diferenciales propuesto, presentamos aquí un listado de todas las variables y parámetros involucrados, considerando una estructura de \(n\) pisos.
+
+\begin{enumerate}
+    \item \textbf{Posiciones (\(u_1(t), u_2(t), \ldots, u_n(t)\)):} Son las posiciones horizontales (en metros) de cada piso, respectivamente. Como recalcamos anteriormente, en este informe se considera a la derecha como el eje positivo. Además, se consideran en función del tiempo.
+
+    \item \textbf{Masas (\(m_1, m_2, \ldots, m_n\)):} Son las masas (en \(\si{kg}\)) de cada piso, respectivamente. Naturalmente, todas las masas deben ser números positivos.
+
+        En el contexto, las masas se ven involucradas en la fuerza requerida para afectar el movimiento de un piso particular. Esto se demuestra por la segunda ley de Newton, \(\sum F_i = ma\).
+
+    \item \textbf{Constantes de amortiguamiento (\(c_1, c_2, \ldots, c_n\)):} Son los coeficientes de amortiguamiento (en \(kg/s\)) de cada piso, respectivamente. Representan la resistencia de cada piso a permanecer en movimiento debido a factores del medio, como la resistencia del aire. Como estamos tomando la ecuación de amortiguamiento \(F_a = -cv\) con el signo negativo ya incluido, estas constantes deben ser no-negativas.
+
+        En el contexto, las constantes de amortiguamiento funcionan como la medida de qué tan rápido se ''estabilizaría`` un piso dado al estar oscilando. Si todas las constantes de amortiguamiento fuesen nulas, entonces un movimiento oscilatorio en la estructura permanecería para siempre aunque ya no se aplicasen fuerzas externas.
+
+    \item \textbf{Constantes elásticas \(k_1, k_2, \ldots, k_n\)}: Son los coeficientes elásticos (en \(\si{kg/s^2}\)) de cada piso, respectivamente. Más precisamente, se pueden interpretar como el coeficiente elástico de la \textit{unión} de un piso con el que tiene por debajo. De la misma forma que las constantes de amortiguamiento, este informe considera la ley de Hooke \(F_e = -kx\) con el signo negativo incluido, así que las constantes elásticas toman valores no-negativos.
+
+    \item \textbf{Fuerzas externas (\(P_1(t), P_2(t), \ldots, P_n(t)\)):} Son las fuerzas externas (en \(\si{N}\)) siendo aplicadas a cada piso en función del tiempo. Más precisamente, actúan en el eje horizontal.
+
+        En el contexto, las fuerzas externas son las que generan el comportamiento (usualmente) oscilatorio de los pisos de la estructura.
+
+\end{enumerate}
+
+Como se ha mostrado en la sección anterior, estas variables y parámetros se agrupan en matrices para presentar las ecuaciones de forma más condensada.
