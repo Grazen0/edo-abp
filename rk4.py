@@ -4,7 +4,7 @@ import numpy as np
 
 def rk4_system(t0, x0, h, steps, f):
     t = np.linspace(t0, t0 + h * steps, steps + 1)
-    x = np.empty((len(x0), steps + 1), dtype=np.float128)
+    x = np.empty((len(x0), steps + 1))
     x[:, 0] = x0
 
     for i in range(steps):
@@ -24,7 +24,7 @@ def make_damping_matrix(k):
     n = len(k)
 
     if n == 1:
-        return np.array([[k[0]]], dtype=np.float128)
+        return np.array([[k[0]]])
 
     out = np.zeros((n, n))
     out[0][0] = k[0] + k[1]
@@ -42,29 +42,28 @@ def make_damping_matrix(k):
 
 mass = np.array([1.5e5, 1.5e5, 1.5e5])
 elasticity = np.array([2e5, 2e5, 2e5])
-damping_percent = np.array([0.05, 0, 0])
+damping_factor = np.array([0.05, 0, 0])
 n = len(mass)
 
-freq = 0.081
+freq = 4
 ground_accel = 0.3
 
 t0 = 0
-x0 = np.zeros(2 * n, dtype=np.float128)
-# x0 = np.append(np.repeat(np.float128(10), n), np.zeros(n, dtype=np.float128))
-ts = 10 * 60
+x0 = np.zeros(2 * n)
+ts = 3 * 60
 s = 10_000
 
 h = (ts - t0) / s
 
-damping = damping_percent * 2 * np.sqrt(mass * elasticity)
-c_mat = make_damping_matrix(damping)
-k_mat = make_damping_matrix(elasticity)
-
-m_inv = np.diag(1 / mass)
+damping = damping_factor * 2 * np.sqrt(mass * elasticity)
+M = np.diag(mass)
+C = make_damping_matrix(damping)
+K = make_damping_matrix(elasticity)
+M_inv = np.linalg.inv(M)
 
 
 def p(t):
-    out = np.zeros(n, dtype=np.float128)
+    out = np.zeros(n)
     out[0] = mass[0] * ground_accel * np.sin(2 * np.pi * freq * t)
     return out
 
@@ -74,7 +73,7 @@ def f(t, x):
     v = x[n:]
     return np.append(
         v,
-        m_inv @ (-c_mat @ v - k_mat @ u + p(t)),
+        M_inv @ (-C @ v - K @ u + p(t)),
     )
 
 

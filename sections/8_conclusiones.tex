@@ -2,9 +2,19 @@
 
 El presente trabajo ha mostrado el modelado de un sistema de ecuaciones diferenciales para las vibraciones estructurales de una estructura de \(n\) pisos, y ha resuelto dicho sistema considerando diferentes conjuntos de parámetros. De esta manera, se han obtenido varias gráficas que muestran el comportamiento de los pisos de la estructura mientras que son sometidos a fuerzas externas a través del tiempo.
 
+Por lo tanto, este informe presenta las siguientes conclusiones:
+
 \begin{enumerate}
-    \item 
+    \item Es posible modelar las ecuaciones diferenciales para el desplazamiento horizontal de los pisos de una estructura mediante el uso de la ley de Hooke, la ley de Newton y realizando ciertas suposiciones sobre el amortiguamiento que recibe cada piso. El proceso para modelar una estructura de \(n\) pisos se puede obtener directamente de tomar un modelo para 3 pisos y tomar a su segundo piso como un piso intermedio cualquiera del modelo de \(n\) pisos.
+
+    \item Aunque es posible, en teoría, emplear métodos analíticos como la transformada de Laplace para resolver sistemas de ecuaciones de segundo orden como aquel planteado en este informe, en la práctica resulta extremadamente largo, tedioso y propenso a errores obtener respuestas analíticas con estos métodos.
+
+    \item Los métodos numéricos, aunque no proveen soluciones analíticas a las ecuaciones diferenciales, constituyen una forma efectiva de obtener resultados de gran utilidad. En particular, son de gran apoyo cuando no es necesario explorar la naturaleza matemática de las soluciones, sino que, por ejemplo, baste con observar las gráficas que pueden producir.
+
+    \item El modelado y resolución de ecuaciones diferenciales para estructuras de varios pisos (como puentes) es una forma práctica de simular y predecir el comportamiento de estas estructuras cuando se someten a fuerzas externas como sismos. Por ejemplo, se puede utilizar para determinar y analizar los efectos de la frecuencia natural de la estructura. Aunque el modelo presentado en este informe hace ciertas simplificaciones sobre el entorno físico de la estructura, igualmente puede ser efectivo para predecir comportamientos a corto plazo.
 \end{enumerate}
+
+Como se mencionó en la sección de propuestas prácticas de aplicación, este trabajo muestra un procedimiento que permite predecir el comportamiento de estructuras de \(n\) grados de libertad, al menos bajo ciertas suposiciones ideales sobre el entorno. Las gráficas que este método puede producir pueden ser de utilidad para observar los rangos de oscilación de los pisos de la estructura, experimentar con los efectos que genera variar los parámetros usados, y determinar un valor aproximado para la frecuencia natural de una estructura.
 
 De la misma manera, se proponen las siguientes recomendaciones para trabajos de investigación a futuro en el tema:
 

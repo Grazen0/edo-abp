@@ -7,17 +7,19 @@ Antes de resolver el sistema de ecuaciones diferenciales propuesto, presentamos 
 
     \item \textbf{Masas (\(m_1, m_2, \ldots, m_n\)):} Son las masas (en \(\si{kg}\)) de cada piso, respectivamente. Naturalmente, todas las masas deben ser números positivos.
 
-        En contexto del modelo, las masas se ven involucradas en la fuerza requerida para afectar el movimiento de un piso particular. Esto se demuestra por la segunda ley de Newton, \(\sum F_i = ma\).
+        En el modelo, las masas se ven involucradas en la fuerza requerida para afectar el movimiento de un piso particular. Esto se demuestra por la segunda ley de Newton, \(\sum F_i = ma\).
 
     \item \textbf{Constantes de amortiguamiento (\(c_1, c_2, \ldots, c_n\)):} Son los coeficientes de amortiguamiento (en \(kg/s\)) de cada piso, respectivamente. Representan la resistencia de cada piso a permanecer en movimiento debido a factores del medio, como la resistencia del aire. Como estamos tomando la ecuación de amortiguamiento \(F_a = -cv\) con el signo negativo ya incluido, estas constantes deben ser no-negativas.
 
-        En contexto del modelo, las constantes de amortiguamiento funcionan como la medida de qué tan rápido se ''estabilizaría`` un piso dado al estar oscilando. Si todas las constantes de amortiguamiento fuesen nulas, entonces un movimiento oscilatorio en la estructura permanecería para siempre aunque las fuerzas externas cesaran.
+        En el modelo, las constantes de amortiguamiento funcionan como la medida de qué tan rápido se ''estabilizaría`` un piso dado al estar oscilando. Si todas las constantes de amortiguamiento fuesen nulas, entonces un movimiento oscilatorio en la estructura permanecería para siempre aunque las fuerzas externas cesaran.
 
     \item \textbf{Constantes elásticas \(k_1, k_2, \ldots, k_n\)}: Son los coeficientes elásticos (en \(\si{kg/s^2}\)) de cada piso, respectivamente. Más precisamente, se pueden interpretar como el coeficiente elástico de la \textit{unión} de un piso con el que tiene por debajo. De la misma forma que las constantes de amortiguamiento, este informe considera la ley de Hooke \(F_e = -kx\) con el signo negativo incluido, así que las constantes elásticas toman valores no-negativos.
 
+        En el modelo, las constantes elásticas determinan la fuerza que ejerce un piso sobre sus pisos adyacentes por la distancia que horizontal que los separa. A mayor sea la constante elástica de un piso particular, con mayor fuerza atraerá a sus pisos adyacentes si se encuentran separados. Posiblemente, mayores constantes elásticas podrían implicar que los pisos permanezcan más unidos.
+
     \item \textbf{Fuerzas externas (\(P_1(t), P_2(t), \ldots, P_n(t)\)):} Son las fuerzas externas (en \(\si{N}\)) siendo aplicadas a cada piso en función del tiempo. Más precisamente, actúan en el eje horizontal.
 
-        En contexto del modelo, las fuerzas externas son las que generan el comportamiento (usualmente) oscilatorio de los pisos de la estructura. En general, a mayor magnitud tengan estas fuerzas, mayores se esperaría que fuesen los desplazamientos de los pisos.
+        En el modelo, las fuerzas externas son las que generan el comportamiento (usualmente) oscilatorio de los pisos de la estructura. En general, a mayor magnitud tengan estas fuerzas, mayores se esperaría que fuesen los desplazamientos de los pisos.
 
         Además, la forma de estas fuerzas también determina el comportamiento del desplazamiento de los pisos. Si algún \(P_i(t)\) toma como valor una función sinusoidal, se esperaría que los pisos oscilen indefinidamente a la misma frecuencia que la fuerza. Si \(\mathbf{P}(t)\) contuviese impulsos breves de fuerza (con forma de campana gaussiana, por ejemplo), se esperaría que los pisos oscilen, pero que la amplitud de dicha oscilación progresivamente vuelva a 0.
 

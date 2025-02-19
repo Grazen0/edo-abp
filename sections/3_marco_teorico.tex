@@ -25,7 +25,7 @@ En sistemas físicos con velocidades relativamente bajas, se considera al amorti
 ,\]
 donde \(v\) es la velocidad del objeto (en \si{m/s}) y \(c\) es la \textbf{constante de amortiguamiento} (en \si{kg/s} y no negativa). Este tipo de amortiguamiento se denomina \textbf{amortiguamiento viscoso} \citep{rak}.
 
-En la práctica, el amortiguamiento se suele definir mediante una \textbf{razón de amortiguamiento} (un coeficiente sin unidades), denotada por \(\zeta\). La constante de amortiguamiento \(c\) se puede calcular a partir la razón \(\zeta\) mediante
+En la práctica, el amortiguamiento se suele definir mediante una \textbf{razón de amortiguamiento} (un coeficiente sin unidades), denotada por \(\zeta\) \citep{tarque}. La constante de amortiguamiento \(c\) se puede calcular a partir la razón \(\zeta\) mediante
 \[
     c = \zeta \left( 2\sqrt{mk} \right)
 ,\]
@@ -71,16 +71,16 @@ Una familia de métodos numéricos que destacan por su simplicidad y efectividad
 \[
     y'(x) = f(x, y)
 \]
-a partir de un punto inicial \(y(t_0) = y_0\) mediante la fórmula
+a partir de un punto inicial \(y(t_0) = y_0\) y con un avance \(h\) mediante la fórmula
 \[
-    y_{n+1} = y_n + \frac{1}{6}h(k_1 + 2k_2 + 2k_3 + k_4)
+    y_{n+1} = y_n + \frac{1}{6}h(k_1 + 2k_2 + 2k_3 + k_4), \quad x_{n+1} = x_n + h
 ,\]
 donde los coeficientes \(k_1, k_2, k_3, k_4\) se calculan mediante
 \begin{align*}
     k_1 &= f(x_n, y_n) \\
     k_2 &= f(x_n + \frac{1}{2}h, y_n + \frac{1}{2}hk_1) \\
     k_3 &= f(x_n + \frac{1}{2}h, y_n + \frac{1}{2}hk_2) \\
-    k_4 &= f(x_n + h, y_n + hk_3) \\
+    k_4 &= f(x_n + h, y_n + hk_3)
 .\end{align*}
 
 Aunque esta formulación asume una sola EDO, el método de RK4 se puede extender para ser aplicado a sistemas de EDOs, lo cual será particularmente útil para este trabajo. Se incluye más información en el apéndice~\ref{appendix:rk4-systems}.

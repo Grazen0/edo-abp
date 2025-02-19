@@ -2,7 +2,7 @@
 
 \subsection{Validación de resultados}
 
-Las gráficas que hemos obtenido (salvo la figura~\ref{fig:sol-p-0}), de una forma u otra, muestran oscilaciones por parte de los 3 pisos involucrados. Esto es de esperar, dada la naturaleza elástica que el modelo de ecuaciones diferenciales supone para la estructura.
+Las gráficas que hemos obtenido (salvo la figura~\ref{fig:sol-sismo-resonance}), de una forma u otra, muestran oscilaciones por parte de los 3 pisos involucrados. Esto es de esperar, dada la naturaleza elástica que el modelo de ecuaciones diferenciales supone para la estructura.
 
 Podemos comparar la forma general de estos gráficos con el trabajo de \citet{hernandez}, quien llevó a cabo un estudio similar de la dinámica de un sistema de 3 grados de libertad. Al igual que las gráficas de este informe, los resultados de \citet{hernandez} muestran comportamiento oscilatorio con cierta (aparente) aleatoriedad.
 
@@ -13,9 +13,17 @@ Dentro de todo, las gráficas que se ha producido para este informe tienen senti
 
 \subsection{Interpretación}
 
-Todas las gráficas presentadas (salvo la figura~\ref{fig:sol-p-0}) presentan cierto comportamiento errático al inicio, lo cual tiene sentido puesto que se trata de un sistema de múltiples masas unidas por componentes que actúan como resortes.
+Todas las gráficas presentadas (salvo la figura~\ref{fig:sol-sismo-resonance}) presentan cierto comportamiento errático al inicio, lo cual tiene sentido puesto que se trata de un sistema de múltiples masas unidas por componentes que actúan como resortes.
 
 La figura~\ref{fig:sol-sismo-corto} muestra que, al menos bajo los parámetros utilizados, el primer piso de la estructura es el que muestra mayor oscilación y desplazamiento. Aunque a grandes rasgos forma una trayectoria aparentemente aleatoria, se puede observar que este piso oscila múltiples veces por segundo dentro de dicha trayectoria. En otras palabras, la gráfica muestra una oscilación dentro de otra oscilación. Los otros dos pisos de la estructura oscilan con un periodo mucho mayor, lo cual, se puede intuir, es el resultado del ``suavizado'' que genera la conexión entre el primer y el segundo piso por medio de la elasticidad que los une.
+
+Por otro lado, se puede observar en la mayoría de gráficas que el último piso de la estructura es aquel cuya oscilación presenta la mayor amplitud, sobre al inicio de la simulación. Esto tiene sentido puesto que, intuitivamente, el último piso de una estructura recibe toda la fuerza elástica acumulada de los pisos que tiene por debajo.
+
+Con respecto a las gráficas generadas variando los parámetros, se puede observar que un aumento en los coeficientes de amortiguamiento y la elasticidad tienden a reducir la amplitud de las oscilaciones, o al menos aumentar la tasa a la que dichas amplitudes disminuyen. Esto es visible sobre todo si se compara a la figura~\ref{fig:sol-sismo-largo} con la figura~\ref{fig:sol-sismo-damped}. También se puede notar en la figura~\ref{fig:sol-sismo-elastic}, aunque el efecto de la elasticidad aumentada no es tan prominente como en el primer caso.
+
+Un resultado curioso ocurre en la figura~\ref{fig:sol-sismo-heavy}, donde se duplicó la masa del primer piso. Sería intuitivo pensar que aumentar la masa de la base de la estructura la haría más estable, de cierta manera. Sin embargo, la gráfica muestra oscilaciones que, sobre todo en un inicio y en el último piso, alcanzan amplitudes mucho mayores a las oscilaciones obtenidas de las otras gráficas. Esto se puede explicar por el hecho de que el primer piso de la estructura, al estar en unión directa con el piso, no ``absorbe'' la fuerza del piso, sino que la transmite directamente al segundo piso. Al tener más masa, esta fuerza se transmite con mayor momento de inercia y produce oscilaciones más amplias en los siguientes pisos.
+
+Otro resultado interesante ocurre en la figura~\ref{fig:sol-sismo-resonance}, donde se aplicó una frecuencia de \(f = 0.0819 \, \si{Hz}\), la cual es muy cercana a la frecuencia natural de la estructura (véase apéndice~\ref{appendix:natural-frequency}). Mientras que las demás gráficas muestran oscilaciones cuyas amplitudes no pasan de los 2 centímetros, esta gráfica muestra oscilaciones en armonía con amplitudes que ya a los \(\approx 30\) segundos alcanzan los \textit{2 metros}. Suponiendo que la estructura se mantiene en pie, estas amplitudes llegarían a \textit{8} metros hacia el final del tercer minuto. Este resultado va acorde con el fenómeno físico de la resonancia, causada por ejercer sobre la estructura fuerzas oscilatorias a una frecuencia muy cercana a su frecuencia natural.
 
 
 \subsection{Limitaciones}
@@ -26,3 +34,7 @@ Otra limitación que presenta este trabajo es la simplificación que se realiza 
 
 
 \subsection{Propuestas prácticas de aplicación}
+
+El modelado numérico de vibraciones mecánicas permite estimar los posibles efectos en una estructura al ser sometida a una fuerza de excitación externa, como un terremoto o un accidente de impacto. Uno de los factores más importantes a considerar es la frecuencia natural de la estructura, ya que es crucial diseñar esta de tal manera que dicha frecuencia no coincida, por ejemplo, con el rango común de catástrofes sísmicas, ya que esto podría tener efectos catastróficos si se produce resonancia.
+
+En este sentido, este trabajo presenta un método que, bajo ciertas simplificaciones del modelo estructural, permite predecir el comportamiento oscilatorio de estas estructuras. Además, como se detalla en el apéndice~\ref{appendix:natural-frequency}, las gráficas producidas proveen un método rudimentario (pero aceptable) para calcular la frecuencia natural de una estructura.
